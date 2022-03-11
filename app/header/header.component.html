@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md bg-black navbar-dark justify-content-center">
+  <a class="navbar-brand" routerLink="welcome">ACH</a>
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="welcome">HOME</a>
+      </li>
+      <li class="nav-item" *ngIf=" isLoggedIn() && isPatient()">
+        <a class="nav-link" routerLink="patient-home">HOME</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn() && isDoctor()">
+        <a class="nav-link" routerLink="doctor-home">HOME</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+        <a class="nav-link" routerLink="admin-home">HOME</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn() && isPatient()">
+        <a class="nav-link" routerLink="user-details">PROFILE</a> 
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn() && isDoctor()">
+        <a class="nav-link" routerLink="user-details">PROFILE</a>
+      </li> 
+      <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+        <a class="nav-link" routerLink="user-details">PROFILE</a>
+      </li> 
+      <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+        <a class="nav-link" routerLink="view-patient">COMPANY</a>
+      </li> 
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="login">LOGIN</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="logout" (click)="clearLog()">LOGOUT</a>
+      </li>
+    </ul>
+  </nav>
+  
